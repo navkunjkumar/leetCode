@@ -1,7 +1,6 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class ArrayProblems {
 
@@ -45,5 +44,32 @@ public class ArrayProblems {
             return new int[]{};
     }
 
+        public static List<List<String>> groupAnagram1(String[] strs) {
+
+            HashMap<String, List<String>> res = new HashMap();
+            for(String s: strs){
+                char[] c = s.toCharArray();
+                Arrays.sort(c);
+                String key = new String(c);
+                res.putIfAbsent(key, new ArrayList<>());
+                res.get(key).add(s);
+            }
+            return new ArrayList<>(res.values());
+
+        }
+
+        public static List<List<String>> groupAnagram2(String[] str){
+            HashMap<String, List<String>> res = new HashMap<>();
+            for(String s : str){
+                int[] storedChar = new int[26];
+                for(char c: s.toCharArray()){
+                    storedChar[c-'a']++;
+                }
+                String key = Arrays.toString(storedChar);
+                res.putIfAbsent(key, new ArrayList<>());
+                res.get(key).add(s);
+            }
+            return new ArrayList<>(res.values()); // what is this , How it happen
+        }
 
 }
