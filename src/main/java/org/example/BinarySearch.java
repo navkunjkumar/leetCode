@@ -34,6 +34,7 @@ public class BinarySearch {
         return -1;
     }
 
+
     public static boolean searchMatrix(int[][] matrix, int target) {
         int l=0;
         int r= matrix.length-1;

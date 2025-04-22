@@ -10,7 +10,8 @@ public class ArrayProblems {
         for(int i : nums){
             if(setNums.contains(nums[i-1])){
                 return true;
-            }setNums.add(nums[i-1]);
+            }
+            setNums.add(nums[i-1]);
         }
         return false;
     }
